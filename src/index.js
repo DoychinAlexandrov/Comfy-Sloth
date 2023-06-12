@@ -14,14 +14,25 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+//dev-6hwjew5yi83840nf.us.auth0.com
+//hTPIasufQHuTolRRGclLfmZ1A2Dsaw2c
+
 root.render(
-    <ProductsProvider>
-        <FilterProvider>
-            <CartProvider>
-                <App />
-            </CartProvider>
-        </FilterProvider>
-    </ProductsProvider>
+    <Auth0Provider
+        domain='dev-6hwjew5yi83840nf.us.auth0.com'
+        clientId='hTPIasufQHuTolRRGclLfmZ1A2Dsaw2c'
+        redirect_uri={window.location.origin}
+    >
+        <UserProvider>
+            <ProductsProvider>
+                <FilterProvider>
+                    <CartProvider>
+                        <App />
+                    </CartProvider>
+                </FilterProvider>
+            </ProductsProvider>
+        </UserProvider>
+    </Auth0Provider>
 );
 
 
